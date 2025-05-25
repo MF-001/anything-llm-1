@@ -12,6 +12,7 @@ primary_region = 'fra'
 [env]
   STORAGE_DIR = '/app/server/storage'
   SERVER_HOST = '0.0.0.0'
+  RUNPOD_OLLAMA_URL = 'https://f3oigjgotyhqyg-11434.proxy.runpod.net'
 
 [[mounts]]
   source = 'data_volume'

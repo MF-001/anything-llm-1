@@ -169,6 +169,12 @@ Mintplex Labs & the community maintain a number of deployment methods, scripts, 
 
 - `yarn setup` To fill in the required `.env` files you'll need in each of the application sections (from root of repo).
   - Go fill those out before proceeding. Ensure `server/.env.development` is filled or else things won't work right.
+  - When deploying with a remote Ollama backend (e.g., on RunPod), set `OLLAMA_BASE_PATH` and `EMBEDDING_BASE_PATH` in your `.env` file to the public IP and port of your RunPod pod. For example:
+    ```
+    OLLAMA_BASE_PATH='http://YOUR_RUNPOD_IP:YOUR_PORT'
+    EMBEDDING_BASE_PATH='http://YOUR_RUNPOD_IP:YOUR_PORT'
+    ```
+    The port should match the one you exposed from the pod (typically 8080 inside the container, mapped to a public port by RunPod). Update these values if your pod is restarted or its public IP/port changes. If these are not set correctly, AnythingLLM will not be able to connect to your Ollama server running on RunPod.
 - `yarn dev:server` To boot the server locally (from root of repo).
 - `yarn dev:frontend` To boot the frontend locally (from root of repo).
 - `yarn dev:collector` To then run the document collector (from root of repo).
